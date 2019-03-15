@@ -19,29 +19,25 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 public class YogultTask {
 
-	@Resource(name="jobLauncher")
+	@Resource(name = "jobLauncher")
 	private JobLauncher jobLauncher;
-	
-	
-	@Resource(name="yogultJob")
+
+	@Resource(name = "yogultJob")
 	private Job yogultJob;
-	
-	
+
 	// 매달 1일 일실적 생성 배치잡 실행
 	// 초, 분, 시간, 일, 월, 요일
-	@Scheduled(cron="* * 1 1 * *")
+	@Scheduled(cron = "* * 1 1 * *")
 	public void yogultDailyJob() {
-		
+
 		Map<String, JobParameter> map = new HashMap<String, JobParameter>();
-		
-		Date today 			 = new Date();
+
+		Date today = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
-		String ym 			 = sdf.format(today);
-		
+		String ym = sdf.format(today);
+
 		map.put("ym", new JobParameter("201904"));
-		
-		
-		
+
 		try {
 			jobLauncher.run(yogultJob, new JobParameters(map));
 		} catch (JobExecutionAlreadyRunningException | JobRestartException | JobInstanceAlreadyCompleteException
@@ -49,21 +45,7 @@ public class YogultTask {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
+
 	}
-	
-	
-		
-		
-		
-		
-		
-		
-		
-	}
-	
-	
+
+}
