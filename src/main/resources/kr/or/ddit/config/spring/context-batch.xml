@@ -67,7 +67,7 @@
 	
 	
 	
-	<bean id="yogultTask" class="kr.or.ddit.yogult.batch.YoglutTask"></bean>
+	<bean id="yogultTask" class="kr.or.ddit.yogult.batch.YogultTask"></bean>
 	<task:scheduler id="scheduler"/>
 	<task:executor id="executor"/>
 	<task:annotation-driven executor="executor" scheduler="scheduler"/>

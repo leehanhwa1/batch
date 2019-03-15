@@ -17,10 +17,11 @@ import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteExcep
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.scheduling.annotation.Scheduled;
 
-public class YoglutTask {
+public class YogultTask {
 
 	@Resource(name="jobLauncher")
 	private JobLauncher jobLauncher;
+	
 	
 	@Resource(name="yogultJob")
 	private Job yogultJob;
